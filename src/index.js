@@ -4,8 +4,10 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const session = require('express-session');
 const dotenv = require("dotenv");
 dotenv.config()
+const cors = require("cors");
 
 const app = express();
+app.use(cors())
 app.use(express.json());
 app.use(session({ secret: 'secret', resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
